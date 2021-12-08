@@ -1,0 +1,29 @@
+{
+    "type": "{{ block "type" . }}{{ end }}",
+    "version": "1.0",
+    {{- with .Title }}
+    "title": "{{ . }}",
+    {{- end }}
+    {{- if or .Params.Author .Site.Author }}
+    "author_name": "
+    {{- if and (.Params.Author) (.Params.Author.name) -}}
+        {{- .Params.Author.name -}}
+    {{- else if (.Params.Author) -}}
+        {{- .Params.Author -}}
+    {{- else if and (.Site.Author) (.Site.Author.name) -}}
+        {{- .Site.Author.name -}}
+    {{- else if (.Site.Author) -}}
+        {{- .Site.Author -}}
+    {{- end -}}
+    ",
+    {{- end -}}
+    {{/*
+        "author_url": "",
+    */}}
+    {{- with .Site.Title }}
+    "provider_name": "{{ . }}",
+    {{- end }}
+    {{- with .Site.BaseURL }}
+    "provider_url": "{{ . }}"
+    {{- end }}
+}

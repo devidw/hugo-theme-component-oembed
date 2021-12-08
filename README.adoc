@@ -1,0 +1,71 @@
+= Hugo Theme Component: oEmbed
+David Wolf <david@wolf.gdn>
+
+Add a static oEmbed endpoint to your static site by generating a oEmbed file for each of your posts.
+
+Currently supported oEmbed content types:
+* `link`
+
+// == Installation
+// …
+
+// == Configuration
+// …
+
+== Setup
+Specify the output format in your `config.yaml` file:
+
+[source,yaml]
+----
+outputFormats:
+  # hugo-theme-component-oembed
+  oembed:
+    name: "oembed"
+    baseName: "oembed"
+    mediaType: "application/json"
+    isPlainText: true
+----
+
+Also add the output format to the `outputs` array:
+
+[source,yaml]
+----
+outputs:
+  home: 
+    - "HTML"
+    - "OEMBED" # hugo-theme-component-oembed
+  page:
+    - "HTML"
+    - "OEMBED" # hugo-theme-component-oembed
+----
+
+Include the `oembed.html` partial in the `<head>` of template:
+
+[source,go]
+----
+{{/* hugo-theme-component-oembed */}}
+{{ partial "oembed.html" . }}
+----
+
+This will create a link like the following on page build:
+
+[source, html]
+----
+<link rel="alternate" 
+      type="application/json+oembed" 
+      href="https://example.com/oembed.json">
+----
+
+
+== Usage
+Exlude a page from the oEmbed output:
+
+[source,yaml]
+----
+notoembed: true
+----
+
+
+== Resources
+* https://oembed.com[oEmbed]
+* https://halfelf.org/2021/oembedding-hugo/[oEmbedding Hugo]

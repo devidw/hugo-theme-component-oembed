@@ -1,0 +1,3 @@
+{{ if and (not .Params.notoembed) (.Permalink) }}
+<link rel="alternate" type="application/json+oembed" href="{{ .Permalink }}/oembed.json">
+{{ end }}
