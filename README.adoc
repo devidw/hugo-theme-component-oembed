@@ -6,8 +6,13 @@ Add a static oEmbed endpoint to your static site by generating a oEmbed file for
 Currently supported oEmbed content types:
 * `link`
 
-// == Installation
-// …
+== Installation
+Add the theme component as submodule to your hugo prject:
+
+[source,zsh]
+----
+git submodule add https://github.com/devidw/hugo-theme-component-oembed.git ./themes/hugo-theme-component-oembed
+----
 
 // == Configuration
 // …
