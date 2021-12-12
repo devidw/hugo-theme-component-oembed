@@ -1,9 +1,10 @@
 = Hugo Theme Component: oEmbed
 David Wolf <david@wolf.gdn>
 
-Add a static oEmbed endpoint to your static site by generating a oEmbed file for each of your posts.
+Add a static oEmbed endpoint to your hugo website by generating a oEmbed file for each of your posts.
 
 Currently supported oEmbed content types:
+
 * `link`
 
 == Installation
