@@ -45,7 +45,7 @@ outputs:
     - "OEMBED" # hugo-theme-component-oembed
 ----
 
-Include the `oembed.html` partial in the `<head>` of template:
+Include the `oembed.html` partial in the `<head>` of you themes template file, for example `baseof.html`:
 
 [source,go]
 ----
