@@ -1,3 +1,15 @@
 {{ if and (not .Params.notoembed) (.Permalink) }}
-<link rel="alternate" type="application/json+oembed" href="{{ .Permalink }}/oembed.json">
+
+{{/* Avoid double slashed in the embed URL "//" by checking if the last char of the current URL already is a slash */}}
+
+{{ $slash := substr .Permalink -1 }}
+
+{{ if eq $slash "/" }}
+{{ $slash = "" }}
+{{ else }}
+{{ $slash = "/" }}
+{{ end }}
+
+<link rel="alternate" type="application/json+oembed" href="{{ .Permalink | relURL }}{{$slash}}oembed.json">
+
 {{ end }}
